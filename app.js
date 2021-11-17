@@ -8,7 +8,6 @@ var server = app.listen(app.get('port'), () => {
     console.log("Servidor  escuchando en el puerto %s", app.get('port'))
 })
 
-//sockets
 
 var SocketIo = require("socket.io");
 const io = SocketIo(server)
@@ -19,6 +18,8 @@ io.on('connection', (socket) => {
     // io.on('message', (data) => {
     //     console.log("datos: " + data)
     // })
+
+    io.emit("message"," holaaaaaaaa")
 
     socket.on('disconnect', () => {
         console.log("el socket se desconecto " + socket.id)
