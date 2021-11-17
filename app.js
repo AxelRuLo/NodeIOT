@@ -17,18 +17,12 @@ var server = app.listen(app.get('port'), () => {
 })
 
 
-var SocketIo = require("socket.io",{
-    handlePreflightRequest: (req, res) => {
-        const headers = {
-            "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            "Access-Control-Allow-Origin": req.headers.Origin, //or the specific Origin you want to give access to,
-            "Access-Control-Allow-Credentials": true
-        };
-        res.writeHead(200, headers);
-        res.end();
-    }
-});
-const io = SocketIo(server)
+var SocketIo = require("socket.io");
+const io = SocketIo(server,{
+  cors: {
+    origin: '*',
+  }
+})
 
 io.on('connection', (socket) => {
     console.log("cliente conectado " + socket.id)
