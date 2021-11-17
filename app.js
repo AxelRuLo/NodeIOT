@@ -24,6 +24,9 @@ io.on('connection', (cliente) => {
     cliente.emit('message', 'Bienvenido!')
 })
 
+setInterval(function() {
+    io.emit('mensaje', 'Hola, desde un Socket.IO de Platzi')
+}, 3000)
 
 //express
 app.get("/", (req, res) => {
