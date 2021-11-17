@@ -21,7 +21,10 @@ io.on('connection', (socket) => {
     // })
 
     socket.on('disconnect', () => {
-            console.log("el socket se desconecto " + socket.id)
+        console.log("el socket se desconecto " + socket.id)
+    })
+    socket.on('message', (data) => {
+            console.log("el socket dice" + data)
         })
         //     // cliente.emit('message', 'Bienvenido!')
 })
