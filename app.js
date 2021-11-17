@@ -31,21 +31,16 @@ const io = SocketIo(server,{
 io.on('connection', (socket) => {
     console.log("cliente conectado " + socket.id)
 
-    // io.on('message', (data) => {
-    //     console.log("datos: " + data)
-    // })
-
-    io.emit(0)
-
     socket.on('disconnect', () => {
         console.log("el socket se desconecto " + socket.id)
     })
     socket.on('message', (data) => {
-        console.log("el socket dice" + data)
+        console.log("el socket dice " + data)
+        io.emit(data)
     })
 
     socket.on('connection', (data) => {
-            console.log("el socket dice" + data)
+            console.log("el socket dice " + data)
         })
         //     // cliente.emit('message', 'Bienvenido!')
 })
