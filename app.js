@@ -21,6 +21,7 @@ io.on('connection', (cliente) => {
     cliente.on('message', (data) => {
         console.log("datos: " + data)
     })
+    cliente.emit('mensaje', 'Bienvenido!')
 })
 
 

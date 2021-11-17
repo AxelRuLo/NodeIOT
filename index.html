@@ -7,11 +7,11 @@
     <h1>Mira la consola</h1>
 
     <script>
-      var socket = io.connect("http://54.152.80.92:3000/", {
+      var socket = io.connect("ws://54.152.80.92:3000/", {
         forceNew: true
       })
       
-      socket.on('mensaje', function (data) {
+      socket.on('message', function (data) {
         console.log(data)
       })
     </script>
