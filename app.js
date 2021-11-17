@@ -17,7 +17,7 @@ var server = app.listen(app.get('port'), () => {
 })
 
 
-var SocketIo = require("socket.io");
+var SocketIo = require("socket.io",{ origins: '*:*'});
 const io = SocketIo(server)
 
 io.on('connection', (socket) => {
