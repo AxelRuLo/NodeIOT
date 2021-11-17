@@ -19,7 +19,7 @@ io.on('connection', (socket) => {
     //     console.log("datos: " + data)
     // })
 
-    io.emit("holaaaaaaaa")
+    io.emit(0)
 
     socket.on('disconnect', () => {
         console.log("el socket se desconecto " + socket.id)
